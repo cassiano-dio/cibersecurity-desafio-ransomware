@@ -1,1 +1,2 @@
-alo brasil
+
+Criando um Ransomware com Python
