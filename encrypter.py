@@ -2,7 +2,7 @@ import os
 import pyaes
 
 ## abrir o arquivo a ser criptografado
-file_name = "teste.txt"
+file_name = "arquivo-user.txt"
 file = open(file_name, "rb")
 file_data = file.read()
 file.close()
