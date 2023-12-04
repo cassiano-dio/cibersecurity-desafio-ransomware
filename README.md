@@ -17,5 +17,5 @@ Esta ferramenta já vem instalada no Kali Linux por padrão.
 
 ## 🔍 Observações
 
-1. Para os scripts rodarem precisei executar o seguinte comando: pip install pyaes
+1. Para os scripts rodarem precisei executar o seguinte comando: **pip install pyaes**
 2. Percebi que os atuais scripts não fazem a checagem da senha de criptografia. Modifiquei a senha do script **encrypter.py** e o script **decrypter.py** mesmo com a senha diferente conseguiu retornar o arquivo para o estado inicial.
