@@ -4,13 +4,13 @@ import io
 
 
 def encrypt_file(alvo, key):
-    # Use an in-memory buffer to store the content
+   
     in_memory_buffer = io.BytesIO()
 
-    # Write the content to the buffer
+    
     in_memory_buffer.write(alvo)
 
-    # Encrypt the content of the in-memory buffer
+    
     in_memory_buffer.seek(0)
     aes = pyaes.AESModeOfOperationCTR(key)
     crypto_data = aes.encrypt(in_memory_buffer.read())
@@ -27,9 +27,6 @@ def decrypt_file(alvo, key):
     in_memory_buffer.write(alvo)
 
     in_memory_buffer.seek(0)
-
-    #with open(alvo, "rb") as file:
-        #file_data = file.read(alvo)
 
     aes = pyaes.AESModeOfOperationCTR(key)
     decrypt_data = aes.decrypt(in_memory_buffer.read())
