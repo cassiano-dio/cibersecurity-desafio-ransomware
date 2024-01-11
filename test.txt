@@ -1,0 +1,1 @@
+Este arquivo será criptografado e não poderá ser lido sem a chave de descriptografia
