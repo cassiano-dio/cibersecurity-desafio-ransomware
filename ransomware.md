@@ -1,0 +1,1 @@
+# Desafio Ransomware com Python no Parrot Security 
